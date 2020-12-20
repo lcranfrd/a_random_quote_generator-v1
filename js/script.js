@@ -20,7 +20,7 @@ const quotes = [
     source: 'Isac Asimov'
   },
   {
-    quote:'Never memorize something that you can look up',
+    quote: 'Never memorize something that you can look up',
     source: 'Albert Einstein'
   },
   {
@@ -42,7 +42,7 @@ const quotes = [
   },
   {
     quote: 'Science and religion are not at odds. Science is simply too young to understand.',
-    source:'Dan Brown',
+    source: 'Dan Brown',
     citation: 'Angels & Demons'
   },
   {
@@ -55,19 +55,19 @@ const quotes = [
   },
   {
     quote: 'We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special.',
-    source:'Stephen Hawking'
+    source: 'Stephen Hawking'
   },
   {
     quote: 'If we knew what it was we were doing, it would not be called research, would it?',
-    source:'Albert Einstein'
+    source: 'Albert Einstein'
   },
   {
     quote: 'Your assumptions are your windows on the world. Scrub them off every once in a while, or the light won\'t come in.',
-    source:'Isaac Asimov'
+    source: 'Isaac Asimov'
   },
   {
     quote: 'Space is big. You just won\'t believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it\'s a long way down the road to the chemist\'s, but that\'s just peanuts to space.',
-    source:'Douglas Adams',
+    source: 'Douglas Adams',
     citation: 'TheHitchhiker\s Guide to the Galaxy'
   },
 ];
@@ -88,10 +88,10 @@ function getRandomQuote() {
 function printQuote() {
   const newQuote = getRandomQuote();
   let htmlStr = `<p class="quote">${newQuote.quote}</p><p class="source">${newQuote.source}`;
-  if(typeof newQuote.citation !== 'undefined'){
+  if(newQuote.citation){
     htmlStr += `<span class="citation">${newQuote.citation}</span>`;
   }
-  if(typeof newQuote.year !== 'undefined'){
+  if(newQuote.year){
     htmlStr += `<span class="year">${newQuote.year}</span>`;
   }
   htmlStr += '</p>';
