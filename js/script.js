@@ -82,11 +82,30 @@ function getRandomQuote() {
 }
 
 /***
+ * `getRandomQuote` function
+ * For 'Exceeds Expectations':
+ * function will return random hex color value
+ * between #222 and #EEE to be passed to the DOM in `printQuote`
+ ***/
+
+function getRandomColor() {
+  const hexColRand = Math.floor(Math.random() * (0xEEEEEE - 0x222222) + 0x222222).toString(16)
+  return '#' + hexColRand.toUpperCase();
+}
+
+/***
  * `printQuote` function
+ * timerID will be cleared on call and set at end to preserve
+ * the automatic new quote generation timing after user click.
+ * function will get new random quote and new hex color,
+ * both to be passed to the DOM.
+ * 
 ***/
 
 function printQuote() {
+  clearInterval(timerId);
   const newQuote = getRandomQuote();
+  const newColor = getRandomColor();
   let htmlStr = `<p class="quote">${newQuote.quote}</p><p class="source">${newQuote.source}`;
   if(newQuote.citation){
     htmlStr += `<span class="citation">${newQuote.citation}</span>`;
@@ -96,8 +115,17 @@ function printQuote() {
   }
   htmlStr += '</p>';
   document.getElementById('quote-box').innerHTML = htmlStr;
+  document.body.style.backgroundColor = newColor;
+  timerId = setInterval(printQuote, 15000);
 }
 
+/***
+ * For 'Excceeds Expectations':
+ * use setTimout method to generate and display a new quote every 15 seconds.
+ * timerId will be reset inside of `printQuote` function
+ */
+
+ let timerId = setInterval(printQuote, 15000);
 
 /***
  * click event listener for the print quote button
