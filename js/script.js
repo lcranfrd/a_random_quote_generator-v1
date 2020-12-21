@@ -7,6 +7,9 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
+  //Leonard Bennett Crantford
+  //I am attempting the Exceeds Expectations Grade
+
 /*** 
  * `quotes` array
  * quotes material from www.goodreads.com
@@ -101,7 +104,7 @@ function getRandomQuote() {
  * `getRandomQuote` function
  * For 'Exceeds Expectations':
  * function will return random hex color value
- * between #222 and #EEE to be passed to the DOM in `printQuote`
+ * between #222 and #CCC to be passed to the DOM in `printQuote`
  ***/
 
 function getRandomColor() {
