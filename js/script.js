@@ -8,7 +8,8 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ * `quotes` array
+ * quotes material from www.goodreads.com
 ***/
 const quotes = [
   {
@@ -21,7 +22,8 @@ const quotes = [
   },
   {
     quote: 'Never memorize something that you can look up',
-    source: 'Albert Einstein'
+    source: 'Albert Einstein',
+    tags: ' humor'
   },
   {
     quote: 'Somewhere, something incredible is waiting to be known.',
@@ -30,11 +32,13 @@ const quotes = [
   {
     quote: 'Time is a drug. Too much of it kills you.',
     source: 'Terry Prachett',
-    citation: 'Small Gods'
+    citation: 'Small Gods',
+    year: '1992'
   },
   {
     quote: 'I\'m sure the universe is full of intelligent life. It\'s just been too intelligent to come here.',
-    source: 'Arthur C. Clarke'
+    source: 'Arthur C. Clarke',
+    tages: 'humor life science '
   },
   {
     quote: 'An expert is a person who has made all the mistakes that can be made in a very narrow field.',
@@ -43,7 +47,8 @@ const quotes = [
   {
     quote: 'Science and religion are not at odds. Science is simply too young to understand.',
     source: 'Dan Brown',
-    citation: 'Angels & Demons'
+    citation: 'Angels & Demons',
+    year: '2000'
   },
   {
     quote: 'That which can be asserted without evidence, can be dismissed without evidence',
@@ -55,7 +60,8 @@ const quotes = [
   },
   {
     quote: 'We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special.',
-    source: 'Stephen Hawking'
+    source: 'Stephen Hawking',
+    tags: 'inspirational science'
   },
   {
     quote: 'If we knew what it was we were doing, it would not be called research, would it?',
@@ -63,13 +69,23 @@ const quotes = [
   },
   {
     quote: 'Your assumptions are your windows on the world. Scrub them off every once in a while, or the light won\'t come in.',
-    source: 'Isaac Asimov'
+    source: 'Isaac Asimov',
+    tags: 'assumptions closed-mindedness'
   },
   {
     quote: 'Space is big. You just won\'t believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it\'s a long way down the road to the chemist\'s, but that\'s just peanuts to space.',
     source: 'Douglas Adams',
-    citation: 'TheHitchhiker\s Guide to the Galaxy'
+    citation: 'The Hitchhiker\s Guide to the Galaxy',
+    year: '1979',
+    tags: 'humor science'
   },
+  {
+    quote: 'God does not play dice with the universe.', 
+    source: 'Albert Einstein',
+    citation: 'The Born-Einstein Letters',
+    year: '1916-55',
+    tags: 'quantum-physics'
+  }
 ];
 
 
@@ -89,7 +105,7 @@ function getRandomQuote() {
  ***/
 
 function getRandomColor() {
-  const hexColRand = Math.floor(Math.random() * (0xEEEEEE - 0x222222) + 0x222222).toString(16)
+  const hexColRand = Math.floor(Math.random() * (0xCCCCCC - 0x222222) + 0x222222).toString(16)
   return '#' + hexColRand.toUpperCase();
 }
 
@@ -106,12 +122,15 @@ function printQuote() {
   clearInterval(timerId);
   const newQuote = getRandomQuote();
   const newColor = getRandomColor();
-  let htmlStr = `<p class="quote">${newQuote.quote}</p><p class="source">${newQuote.source}`;
+  let htmlStr = `<p class="quote"> ${newQuote.quote} </p><p class="source">${newQuote.source}`;
   if(newQuote.citation){
-    htmlStr += `<span class="citation">${newQuote.citation}</span>`;
+    htmlStr += `<span class="citation"> ${newQuote.citation} </span>`;
   }
   if(newQuote.year){
-    htmlStr += `<span class="year">${newQuote.year}</span>`;
+    htmlStr += `<span class="year"> ${newQuote.year} </span>`;
+  }
+  if(newQuote.tags){
+    htmlStr += `<span class="tags"> ${newQuote.tags} </span>`;
   }
   htmlStr += '</p>';
   document.getElementById('quote-box').innerHTML = htmlStr;
