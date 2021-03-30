@@ -41,7 +41,7 @@ const quotes = [
   {
     quote: 'I\'m sure the universe is full of intelligent life. It\'s just been too intelligent to come here.',
     source: 'Arthur C. Clarke',
-    tages: 'humor life science '
+    tags: 'humor life science '
   },
   {
     quote: 'An expert is a person who has made all the mistakes that can be made in a very narrow field.',
